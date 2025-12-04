@@ -1,139 +1,207 @@
 Store Frontend - Angular Application
-A modern e-commerce frontend application built with Angular, featuring user authentication, product management, and a responsive UI.
-🚀 Live Demo
-Production URL: https://store-frontend-jet.vercel.app
-📋 Table of Contents
 
-Features
-Prerequisites
-Installation
-Configuration
-Running the Application
-Building for Production
-Deployment
-Project Structure
-API Integration
-Troubleshooting
+A modern e-commerce frontend application built with Angular, featuring user authentication, product management, and a responsive UI.
+
+ 🚀 Live Demo
+
+**Production URL:** https://store-frontend-jet.vercel.app
+
+ 📋 Table of Contents
+
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Application](#running-the-application)
+- [Building for Production](#building-for-production)
+- [Deployment](#deployment)
+- [Project Structure](#project-structure)
+- [API Integration](#api-integration)
+- [Troubleshooting](#troubleshooting)
 
 ✨ Features
 
-User Authentication
+- **User Authentication**
+  - User registration with form validation
+  - Secure login with JWT tokens
+  - Protected routes with auth guards
+  
+- **Product Management**
+  - Browse all products
+  - View user's own products
+  - Add new products
+  - Update existing products
+  - Delete products
 
-User registration with form validation
-Secure login with JWT tokens
-Protected routes with auth guards
-
-
-Product Management
-
-Browse all products
-View user's own products
-Add new products
-Update existing products
-Delete products
-
-
-Responsive Design
-
-Mobile-friendly interface
-Modern UI with Tailwind CSS/Bootstrap
-Intuitive navigation
-
-
+- **Responsive Design**
+  - Mobile-friendly interface
+  - Modern UI with Tailwind CSS/Bootstrap
+  - Intuitive navigation
 
 🔧 Prerequisites
+
 Before you begin, ensure you have the following installed:
 
-Node.js (v18 or higher) - Download
-npm (comes with Node.js)
-Angular CLI (v17 or higher)
+- **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- **Angular CLI** (v17 or higher)
 
-bash# Check versions
+```bash
+# Check versions
 node --version
 npm --version
 ng version
-📦 Installation
+```
 
-Clone the repository
+## 📦 Installation
 
-bashcd store-frontend
+1. **Clone the repository**
 
-Install dependencies
+```bash
+cd store-frontend
+```
 
-bashnpm install
+2. **Install dependencies**
 
-Install Angular CLI globally (if not already installed)
+```bash
+npm install
+```
 
-bashnpm install -g @angular/cli
-⚙️ Configuration
-Backend API Configuration
+3. **Install Angular CLI globally (if not already installed)**
+
+```bash
+npm install -g @angular/cli
+```
+
+## ⚙️ Configuration
+
+### Backend API Configuration
+
 Update the backend API URLs in the service files:
-File: src/app/services/auth.service.ts
-typescriptprivate apiUrl = 'https://your-backend-url.ngrok-free.dev/auth';
-File: src/app/services/product.service.ts
-typescriptprivate apiUrl = 'https://your-backend-url.ngrok-free.dev/products';
-Environment Files (Optional)
+
+**File: `src/app/services/auth.service.ts`**
+```typescript
+private apiUrl = 'https://your-backend-url.ngrok-free.dev/auth';
+```
+
+**File: `src/app/services/product.service.ts`**
+```typescript
+private apiUrl = 'https://your-backend-url.ngrok-free.dev/products';
+```
+
+### Environment Files (Optional)
+
 For better configuration management, you can use environment files:
-File: src/environments/environment.ts (Development)
-typescriptexport const environment = {
+
+**File: `src/environments/environment.ts`** (Development)
+```typescript
+export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080'
 };
-File: src/environments/environment.prod.ts (Production)
-typescriptexport const environment = {
+```
+
+**File: `src/environments/environment.prod.ts`** (Production)
+```typescript
+export const environment = {
   production: true,
   apiUrl: 'https://your-backend-url.ngrok-free.dev'
 };
-🏃 Running the Application
-Development Server
+```
+
+## 🏃 Running the Application
+
+### Development Server
+
 Start the development server:
-bashng serve
-The application will be available at: http://localhost:4200
-Development Server with Custom Port
-bashng serve --port 4300
-Open Browser Automatically
-bashng serve --open
-🏗️ Building for Production
+
+```bash
+ng serve
+```
+
+The application will be available at: `http://localhost:4200`
+
+### Development Server with Custom Port
+
+```bash
+ng serve --port 4300
+```
+
+### Open Browser Automatically
+
+```bash
+ng serve --open
+```
+
+## 🏗️ Building for Production
+
 Build the project for production deployment:
-bashng build --configuration production
-The build artifacts will be stored in the dist/ directory.
-Build Output Location
-Check your angular.json file for the exact output path:
-json"outputPath": "dist/store-frontend/browser"
-🚀 Deployment
-Deploy to Vercel
 
-Install Vercel CLI
+```bash
+ng build --configuration production
+```
 
-bashnpm install -g vercel
+The build artifacts will be stored in the `dist/` directory.
 
-Login to Vercel
+### Build Output Location
 
-bashvercel login
+Check your `angular.json` file for the exact output path:
+```json
+"outputPath": "dist/store-frontend/browser"
+```
 
-Deploy to Production
+## 🚀 Deployment
 
-bashvercel --prod
-Configuration prompts:
+### Deploy to Vercel
 
-Build Command: ng build --configuration production
-Output Directory: dist/store-frontend/browser (check your angular.json)
-Development Command: ng serve
+1. **Install Vercel CLI**
 
-Deploy to Netlify
+```bash
+npm install -g vercel
+```
 
-Build the project
+2. **Login to Vercel**
 
-bashng build --configuration production
+```bash
+vercel login
+```
 
-Deploy using Netlify CLI
+3. **Deploy to Production**
 
-bashnpm install -g netlify-cli
+```bash
+vercel --prod
+```
+
+**Configuration prompts:**
+- Build Command: `ng build --configuration production`
+- Output Directory: `dist/store-frontend/browser` (check your angular.json)
+- Development Command: `ng serve`
+
+### Deploy to Netlify
+
+1. **Build the project**
+
+```bash
+ng build --configuration production
+```
+
+2. **Deploy using Netlify CLI**
+
+```bash
+npm install -g netlify-cli
 netlify deploy --prod --dir=dist/store-frontend/browser
-Deploy to GitHub Pages
-bashng add angular-cli-ghpages
+```
+
+### Deploy to GitHub Pages
+
+```bash
+ng add angular-cli-ghpages
 ng deploy --base-href=/your-repo-name/
-📁 Project Structure
+```
+
+## 📁 Project Structure
+
+```
 store-frontend/
 ├── src/
 │   ├── app/
@@ -159,55 +227,84 @@ store-frontend/
 ├── package.json
 ├── tsconfig.json
 └── README.md
-🔌 API Integration
-Authentication Endpoints
+```
 
-POST /auth/register - Register new user
-POST /auth/login - Login user (returns JWT token)
+## 🔌 API Integration
 
-Product Endpoints
+### Authentication Endpoints
 
-GET /products - Get all products
-GET /products/my-products - Get user's products (requires auth)
-POST /products - Create new product (requires auth)
-PUT /products/{id} - Update product (requires auth)
-DELETE /products/{id} - Delete product (requires auth)
+- **POST** `/auth/register` - Register new user
+- **POST** `/auth/login` - Login user (returns JWT token)
 
-Request Headers
+### Product Endpoints
+
+- **GET** `/products` - Get all products
+- **GET** `/products/my-products` - Get user's products (requires auth)
+- **POST** `/products` - Create new product (requires auth)
+- **PUT** `/products/{id}` - Update product (requires auth)
+- **DELETE** `/products/{id}` - Delete product (requires auth)
+
+### Request Headers
+
 All authenticated requests include:
-typescriptheaders: {
+```typescript
+headers: {
   'Authorization': 'Bearer <jwt-token>',
   'Content-Type': 'application/json'
 }
-🐛 Troubleshooting
-CORS Errors
+```
+
+## 🐛 Troubleshooting
+
+### CORS Errors
+
 If you encounter CORS errors, ensure your Spring Boot backend has proper CORS configuration:
-javaconfiguration.setAllowedOriginPatterns(List.of("*"));
+
+```java
+configuration.setAllowedOriginPatterns(List.of("*"));
 configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 configuration.setAllowedHeaders(List.of("*"));
 configuration.setAllowCredentials(true);
-401 Unauthorized on Products Page
+```
 
-Ensure you're logged in first
-Check that JWT token is being stored (Browser DevTools → Application → Local Storage)
-Verify the token is being sent in request headers (Network tab)
+### 401 Unauthorized on Products Page
 
-Build Errors
+- Ensure you're logged in first
+- Check that JWT token is being stored (Browser DevTools → Application → Local Storage)
+- Verify the token is being sent in request headers (Network tab)
+
+### Build Errors
+
 Clear cache and reinstall dependencies:
-bashrm -rf node_modules package-lock.json
+
+```bash
+rm -rf node_modules package-lock.json
 npm install
-Port Already in Use
+```
+
+### Port Already in Use
+
 If port 4200 is busy:
-bashng serve --port 4300
+
+```bash
+ng serve --port 4300
+```
+
 Or kill the process:
-bash# Windows
+
+```bash
+# Windows
 netstat -ano | findstr :4200
 taskkill /PID <PID> /F
 
 # Mac/Linux
 lsof -ti:4200 | xargs kill -9
-📚 Available Scripts
-bash# Development server
+```
+
+## 📚 Available Scripts
+
+```bash
+# Development server
 npm start
 
 # Build for production
@@ -221,31 +318,40 @@ npm run e2e
 
 # Lint the code
 npm run lint
-🛠️ Technologies Used
+```
 
-Angular 17+ - Frontend framework
-TypeScript - Programming language
-RxJS - Reactive programming
-Angular Router - Navigation
-HttpClient - API communication
-Tailwind CSS / Bootstrap - Styling
+## 🛠️ Technologies Used
 
-📝 Notes
+- **Angular** 17+ - Frontend framework
+- **TypeScript** - Programming language
+- **RxJS** - Reactive programming
+- **Angular Router** - Navigation
+- **HttpClient** - API communication
+- **Tailwind CSS / Bootstrap** - Styling
 
-The application uses JWT tokens for authentication
-Tokens are stored in browser's localStorage
-All product operations require authentication
-Make sure the backend server is running before starting the frontend
+ 📝 Notes
 
-🤝 Contributing
+- The application uses JWT tokens for authentication
+- Tokens are stored in browser's localStorage
+- All product operations require authentication
+- Make sure the backend server is running before starting the frontend
 
-Fork the repository
-Create a feature branch (git checkout -b feature/amazing-feature)
-Commit your changes (git commit -m 'Add some amazing feature')
-Push to the branch (git push origin feature/amazing-feature)
-Open a Pull Request
+ 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 📄 License
+
 This project is licensed under the MIT License.
-👤 Author
-Caleb 
+
+ 👤 Author
+
+**Caleb 
+
+---
+
+**Need help?** Check the [Angular Documentation](https://angular.io/docs) or open an issue in the repository.
